@@ -1,4 +1,8 @@
-﻿using Entities.Models;
+﻿using AutoMapper;
+using Entities.DataTransferObjects;
+using Entities.Exceptions;
+using Entities.Models;
+using Microsoft.Extensions.Primitives;
 using Repositories.Contracts;
 using Services.Contracts;
 using System;
@@ -13,15 +17,19 @@ namespace Services
     public class BookManager : IBookService
     {
         private readonly IRepositoryManager _manager;
-        public BookManager(IRepositoryManager manager)
+        private readonly ILoggerService _logger;
+        private readonly IMapper _mapper;
+
+
+
+        public BookManager(IRepositoryManager manager, ILoggerService logger, IMapper mapper)
         {
-            _manager=manager;
+            _manager = manager;
+            _logger = logger;
+            _mapper = mapper;
         }
         public Book CreateOneBook(Book book)
-        {
-            if (book==null)
-                throw new ArgumentNullException(nameof(book));                                                                                                                                                                                                                                                                                                                       
-            
+        {      
             _manager.Book.CreateOneBook(book);
             _manager.Save();
             return book;
@@ -31,34 +39,40 @@ namespace Services
         {
             var entity=_manager.Book.GetOneBook(id,trackChanges);
             if (entity == null)
-                throw new Exception($"Book with id:{id} could not found");
+                throw new BookNotFoundException(id);
+                
             _manager.Book.DeleteOneBook(entity);
             _manager.Save();
         }
 
-        public IEnumerable<Book> GetAllBooks(bool trackChanges)
+        public IEnumerable<BookDto> GetAllBooks(bool trackChanges)
         {
-            return _manager.Book.GetAllBooks(trackChanges);
+            var books= _manager.Book.GetAllBooks(trackChanges);
+            return _mapper.Map<IEnumerable<BookDto>>(books);
         }
 
         public Book GetOneBookById(int id, bool trackChanges)
         {
-            return _manager.Book.GetOneBook(id, trackChanges); ;
+            var book=_manager.Book.GetOneBook(id, trackChanges);
+            if(book == null)
+            {
+                throw new BookNotFoundException(id);
+            }
+            return book;
         }
 
-        public void UpdateOneBook(int id, Book book, bool trackChanges)
+        public void UpdateOneBook(int id, BookDtoForUpdate bookDto, bool trackChanges)
         {
             //check entity
             var entity=_manager.Book.GetOneBook(id, trackChanges);
             if (entity == null)
-                throw new Exception($"Book with id:{id} could not found");
+                throw new BookNotFoundException(id);
 
-            //check params
-            if(book == null)
-                throw new ArgumentNullException(nameof(book));
+            entity = _mapper.Map<Book>(bookDto);
 
-            entity.BookName = book.BookName;
-            entity.Price = book.Price;
+            //Mapping    
+            //entity.BookName = book.BookName;
+            //entity.Price = book.Price;
 
             _manager.Book.Update(entity);
             _manager.Save();
