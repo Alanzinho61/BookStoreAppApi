@@ -36,27 +36,36 @@ namespace Presentation.Controllers
         }
 
         [HttpPost("Post")]
-        public IActionResult Post(Book b)
+        public IActionResult Post(BookDtoForInsertion bookDto)
         {
-                if (b != null)
-                {
-                    _manager.BookService.CreateOneBook(b);
-                    return StatusCode(201, b);
-                }
-                return BadRequest();
+            if (!ModelState.IsValid)
+            {
+                return UnprocessableEntity(ModelState);
+            }
+            if (bookDto != null)
+            {
+                _manager.BookService.CreateOneBook(bookDto);
+                return StatusCode(201, bookDto);
+            }
+            return BadRequest();
+
         }
 
 
         [HttpPut("PutWithId")]
         public IActionResult Put(int id, BookDtoForUpdate bookDto)
         {
-           
-                if (bookDto != null)
-                {
-                    _manager.BookService.UpdateOneBook(id, bookDto, true);
-                    return Ok(bookDto);
-                }
-                return NotFound();
+            if (!ModelState.IsValid)
+            {
+                return UnprocessableEntity(ModelState);
+            }
+
+            if (bookDto != null)
+            {
+                _manager.BookService.UpdateOneBook(id, bookDto, false);
+                return Ok(bookDto);
+            }
+            return NotFound();
 
 
         }
