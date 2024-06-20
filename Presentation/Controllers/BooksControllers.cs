@@ -22,21 +22,21 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("Get")]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAllAsync()
         {
-                var books = _manager.BookService.GetAllBooks(false);
-                return Ok(books);
+            var books =await  _manager.BookService.GetAllBooksAsync(false);
+            return Ok(books);
         }
 
         [HttpGet("GetOneBook")]
-        public IActionResult Get(int id)
+        public async Task<IActionResult> GetAsync(int id)
         {
-            var book = _manager.BookService.GetOneBookById(id, false);
+            var book = await _manager.BookService.GetOneBookByIdAsync(id, false);
             return Ok(book);
         }
 
         [HttpPost("Post")]
-        public IActionResult Post(BookDtoForInsertion bookDto)
+        public async Task<IActionResult> PostAsync(BookDtoForInsertion bookDto)
         {
             if (!ModelState.IsValid)
             {
@@ -44,7 +44,7 @@ namespace Presentation.Controllers
             }
             if (bookDto != null)
             {
-                _manager.BookService.CreateOneBook(bookDto);
+                await _manager.BookService.CreateOneBookAsync(bookDto);
                 return StatusCode(201, bookDto);
             }
             return BadRequest();
@@ -53,7 +53,7 @@ namespace Presentation.Controllers
 
 
         [HttpPut("PutWithId")]
-        public IActionResult Put(int id, BookDtoForUpdate bookDto)
+        public async Task<IActionResult> PutAsync(int id, BookDtoForUpdate bookDto)
         {
             if (!ModelState.IsValid)
             {
@@ -62,7 +62,7 @@ namespace Presentation.Controllers
 
             if (bookDto != null)
             {
-                _manager.BookService.UpdateOneBook(id, bookDto, false);
+                await _manager.BookService.UpdateOneBookAsync(id, bookDto, false);
                 return Ok(bookDto);
             }
             return NotFound();
@@ -71,9 +71,9 @@ namespace Presentation.Controllers
         }
 
         [HttpDelete("DeleteWithId")]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> DeleteAsync(int id)
         {
-            _manager.BookService.DeleteOneBook(id, false);
+            await _manager.BookService.DeleteOneBookAsync(id, false);
             return NoContent();
         }
     }

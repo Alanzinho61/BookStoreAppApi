@@ -1,4 +1,5 @@
 ﻿using Entities.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Repositories.Contracts;
 using System;
@@ -21,14 +22,14 @@ namespace Repositories.EFCore
         public void DeleteOneBook(Book book) => Delete(book);
         
 
-        public IQueryable<Book> GetAllBooks(bool trackChanges)
+        public async Task<IEnumerable<Book>> GetAllBooksAsync(bool trackChanges)
         {
-            return FindAll(trackChanges).OrderBy(b=>b.Id);
+            return  await FindAll(trackChanges).OrderBy(b=>b.Id).ToListAsync();
         }
 
-        public Book GetOneBook(int id, bool trackChanges)
+        public async Task<Book> GetOneBookAsync(int id, bool trackChanges)
         {
-            return FindByConditions(b => b.Id == id, trackChanges).SingleOrDefault();
+            return await FindByConditions(b => b.Id == id, trackChanges).SingleOrDefaultAsync();
 
         }
 
