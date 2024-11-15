@@ -9,7 +9,7 @@ namespace Entities.DataTransferObjects
 {
     public abstract record BookDtoForManipulation
     {
-        [Required(ErrorMessage ="Title is re")]
+        [Required(ErrorMessage = "Title is required")]
         [MinLength(2)]
         [MaxLength(50)]
         public string BookName { get; init; }

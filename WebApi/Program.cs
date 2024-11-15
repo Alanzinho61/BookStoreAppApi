@@ -1,7 +1,9 @@
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using NLog;
+using Presentation.ActionFilters;
 using Services.Contracts;
 using WebApi.Extensions;
 
@@ -22,7 +24,8 @@ namespace WebApi
             })
                 .AddXmlDataContractSerializerFormatters()
                 .AddApplicationPart(typeof(Presentation.AssemblyReference).Assembly);
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+           
 
             builder.Services.Configure<ApiBehaviorOptions>(options =>
             {
@@ -39,6 +42,7 @@ namespace WebApi
             builder.Services.ConfigureServiceManager();
             builder.Services.ConfigureLoggerService();
             builder.Services.AddAutoMapper(typeof(Program));
+            builder.Services.ConfigureActionFilters();
 
             var app = builder.Build();
             var logger = app.Services.GetRequiredService<ILoggerService>();

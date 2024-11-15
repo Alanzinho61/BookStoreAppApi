@@ -1,7 +1,9 @@
 ﻿using Entities.DataTransferObjects;
 using Entities.Exceptions;
 using Entities.Models;
+using Entities.RequestFeatures;
 using Microsoft.AspNetCore.Mvc;
+using Presentation.ActionFilters;
 using Services.Contracts;
 using System;
 using System.Collections.Generic;
@@ -11,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace Presentation.Controllers
 {
+    [ServiceFilter(typeof(LogFilterAttribute))]
     [ApiController]
     [Route("api/books")]
     public class BooksController : ControllerBase
@@ -22,9 +25,9 @@ namespace Presentation.Controllers
         }
 
         [HttpGet("Get")]
-        public async Task<IActionResult> GetAllAsync()
+        public async Task<IActionResult> GetAllAsync([FromQuery]BookParameters bookParameters) //FromQuery ile queryden alindigini bildirdik
         {
-            var books =await  _manager.BookService.GetAllBooksAsync(false);
+            var books =await  _manager.BookService.GetAllBooksAsync(bookParameters,false);
             return Ok(books);
         }
 
@@ -34,40 +37,23 @@ namespace Presentation.Controllers
             var book = await _manager.BookService.GetOneBookByIdAsync(id, false);
             return Ok(book);
         }
-
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPost("Post")]
         public async Task<IActionResult> PostAsync(BookDtoForInsertion bookDto)
         {
-            if (!ModelState.IsValid)
-            {
-                return UnprocessableEntity(ModelState);
-            }
-            if (bookDto != null)
-            {
-                await _manager.BookService.CreateOneBookAsync(bookDto);
-                return StatusCode(201, bookDto);
-            }
-            return BadRequest();
-
+            var book=await _manager.BookService.CreateOneBookAsync(bookDto);
+            return StatusCode(201, book);
         }
 
-
+        
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         [HttpPut("PutWithId")]
         public async Task<IActionResult> PutAsync(int id, BookDtoForUpdate bookDto)
         {
-            if (!ModelState.IsValid)
-            {
-                return UnprocessableEntity(ModelState);
-            }
 
-            if (bookDto != null)
-            {
-                await _manager.BookService.UpdateOneBookAsync(id, bookDto, false);
-                return Ok(bookDto);
-            }
-            return NotFound();
-
-
+            await _manager.BookService.UpdateOneBookAsync(id, bookDto, false);
+            
+            return Ok(bookDto);
         }
 
         [HttpDelete("DeleteWithId")]

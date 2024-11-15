@@ -1,4 +1,5 @@
 ﻿using Entities.Models;
+using Entities.RequestFeatures;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Repositories.Contracts;
@@ -22,9 +23,12 @@ namespace Repositories.EFCore
         public void DeleteOneBook(Book book) => Delete(book);
         
 
-        public async Task<IEnumerable<Book>> GetAllBooksAsync(bool trackChanges)
+        public async Task<IEnumerable<Book>> GetAllBooksAsync(BookParameters bookParameters, bool trackChanges)
         {
-            return  await FindAll(trackChanges).OrderBy(b=>b.Id).ToListAsync();
+            return  await FindAll(trackChanges)
+                .OrderBy(b=>b.Id)
+                .Skip((bookParameters.pageNumber-1)*bookParameters.pageSize)
+                .ToListAsync();
         }
 
         public async Task<Book> GetOneBookAsync(int id, bool trackChanges)

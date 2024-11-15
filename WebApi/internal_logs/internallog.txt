@@ -70,3 +70,49 @@
 2024-06-19 23:34:08.2494 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
 2024-06-19 23:34:08.2494 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Mucahit\Desktop\WebApiProject\StoreApp\WebApi\nlog.config
 2024-06-19 23:34:08.2727 Info Configuration initialized.
+2024-06-23 11:54:08.2333 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 11:54:08.2756 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 11:54:08.2943 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Mucahit\Desktop\WebApiProject\StoreApp\WebApi\nlog.config
+2024-06-23 11:54:08.3120 Info Configuration initialized.
+2024-06-23 11:56:13.8277 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 11:56:13.8451 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 11:56:13.8570 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Mucahit\Desktop\WebApiProject\StoreApp\WebApi\nlog.config
+2024-06-23 11:56:13.8761 Info Configuration initialized.
+2024-06-23 11:58:13.9997 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 11:58:14.0183 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 11:58:14.0313 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Mucahit\Desktop\WebApiProject\StoreApp\WebApi\nlog.config
+2024-06-23 11:58:14.0459 Info Configuration initialized.
+2024-11-10 10:35:54.5004 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-11-10 10:35:54.5922 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-11-10 10:35:54.6225 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Mucahit\Desktop\WebApiProject\StoreApp\WebApi\nlog.config
+2024-11-10 10:35:54.6485 Info Configuration initialized.
+2024-11-10 10:44:58.0491 Info AppDomain Shutting down. LogFactory closing...
+2024-11-10 10:44:58.0789 Info LogFactory has been closed.
+2024-11-10 11:40:03.9695 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-11-10 11:40:04.0439 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-11-10 11:40:04.0541 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Mucahit\Desktop\WebApiProject\StoreApp\WebApi\nlog.config
+2024-11-10 11:40:04.0678 Info Configuration initialized.
+2024-11-14 15:16:17.3871 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-11-14 15:16:17.4240 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-11-14 15:16:17.4383 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Mucahit\Desktop\WebApiProject\StoreApp\WebApi\nlog.config
+2024-11-14 15:16:17.4622 Info Configuration initialized.
+2024-11-14 15:35:41.8388 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-11-14 15:35:41.8872 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-11-14 15:35:41.9152 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Mucahit\Desktop\WebApiProject\StoreApp\WebApi\nlog.config
+2024-11-14 15:35:41.9325 Info Configuration initialized.
+2024-11-14 15:43:04.9071 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-11-14 15:43:04.9452 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-11-14 15:43:04.9558 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Mucahit\Desktop\WebApiProject\StoreApp\WebApi\nlog.config
+2024-11-14 15:43:04.9558 Info Configuration initialized.
+2024-11-15 15:01:51.4205 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-11-15 15:01:51.4928 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-11-15 15:01:51.5235 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Mucahit\Desktop\WebApiProject\StoreApp\WebApi\nlog.config
+2024-11-15 15:01:51.5531 Info Configuration initialized.
+2024-11-15 15:03:23.5999 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-11-15 15:03:23.6530 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-11-15 15:03:23.6925 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Mucahit\Desktop\WebApiProject\StoreApp\WebApi\nlog.config
+2024-11-15 15:03:23.7271 Info Configuration initialized.
+2024-11-15 16:27:59.0451 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-11-15 16:27:59.0845 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-11-15 16:27:59.1028 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\Mucahit\Desktop\WebApiProject\StoreApp\WebApi\nlog.config
+2024-11-15 16:27:59.1161 Info Configuration initialized.
